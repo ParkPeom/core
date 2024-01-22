@@ -12,13 +12,16 @@ import hello.core.order.OrderServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * 스프링 빈을 생성해서 의존 관계를 주입하는 단계가 나누어져 있다
+ */
 
 @Configuration // 애플리케이션 구성정보를 담당
 public class AppConfig {
 
     @Bean(name = "nmm")      // Spring 컨테이너에 등록 된다
-    public MemberService memberService(){
-        return new MemberServiceImpl(memberRepository());
+    public MemberService memberService(){                  // 빈이름 : memberService
+        return new MemberServiceImpl(memberRepository());  // 빈객체 : MemberServiceImpl
     }
 
     @Bean

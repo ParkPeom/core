@@ -13,7 +13,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class OrderApp {
 
     public static void main(String[] args) {
-
         // AppConfig appConfig = new AppConfig();
         // MemberService memberService = appConfig.memberService();
         // OrderService orderService = appConfig.orderService();
@@ -21,6 +20,7 @@ public class OrderApp {
         // MemberService memberService = new MemberServiceImpl(null);
         // OrderService orderService = new OrderServiceImpl(null,null);
 
+        // 스프링 컨테이너 생성
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
 
         MemberService memberService = applicationContext.getBean("nmm" , MemberService.class);
