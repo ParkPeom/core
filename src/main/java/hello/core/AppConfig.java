@@ -9,6 +9,7 @@ import hello.core.member.MemberServiceImpl;
 import hello.core.member.MemoryMemberRepository;
 import hello.core.order.OrderService;
 import hello.core.order.OrderServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,24 +20,31 @@ import org.springframework.context.annotation.Configuration;
 @Configuration // 애플리케이션 구성정보를 담당
 public class AppConfig {
 
+    @Autowired MemberRepository memberRepository;
+
+
     @Bean(name = "memberService")      // Spring 컨테이너에 등록 된다
     public MemberService memberService(){                  // 빈이름 : memberService
-        return new MemberServiceImpl(memberRepository());  // 빈객체 : MemberServiceImpl
+        System.out.println("call AppConfig.memberService");
+        return new MemberServiceImpl(memberRepository);  // 빈객체 : MemberServiceImpl
     }
 
     @Bean
     public MemberRepository memberRepository() {
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
     @Bean
     public OrderService orderService() {
+        System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(memberRepository() ,discountPolicy());
     }
 
     @Bean
     public DiscountPolicy discountPolicy(){
         // return new FixDisCountPolicy();
+        System.out.println("call AppConfig.discountPolicy");
         return new RateDiscountPolicy();
     }
 }
