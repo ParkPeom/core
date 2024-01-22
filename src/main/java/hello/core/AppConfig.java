@@ -12,7 +12,7 @@ import hello.core.order.OrderServiceImpl;
 
 // 애플리케이션의 실제 동작에 필요한 구현 객체를 만든다
 // 객체의 생성 과 연결은 AppConfig 가 담당한다. DIP 완성
-public class AppConfig {
+public class AppConfig { // IOC 컨테이너
 
     // 생성자 주입 = 인젝션
     public MemberService memberService(){
