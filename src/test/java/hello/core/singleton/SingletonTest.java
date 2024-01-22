@@ -34,7 +34,6 @@ public class SingletonTest {
     void singletonServiceTest() {
         SingletonService singletonService1 = SingletonService.getInstance();
         SingletonService singletonService2 = SingletonService.getInstance();
-
         // 인스턴스 비교
         assertThat(singletonService1).isSameAs(singletonService2);
 
