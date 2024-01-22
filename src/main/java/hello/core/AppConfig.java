@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration // 애플리케이션 구성정보를 담당
 public class AppConfig {
 
-    @Bean      // Spring 컨테이너에 등록 된다
+    @Bean(name = "nmm")      // Spring 컨테이너에 등록 된다
     public MemberService memberService(){
         return new MemberServiceImpl(memberRepository());
     }
