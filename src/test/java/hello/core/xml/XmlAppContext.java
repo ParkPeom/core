@@ -8,8 +8,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class XmlAppContext {
 
-
-
     @Test
     void xmlApplication(){
         GenericXmlApplicationContext ac = new GenericXmlApplicationContext("appConfig.xml");
